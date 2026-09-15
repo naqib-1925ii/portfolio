@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio of MD. Naqib Al Mahdi — CSE student at Premier University Chittagong, digital marketer, and founder of Astha Imports.">
+<meta property="og:title" content="MD. Naqib Al Mahdi — Portfolio">
+<meta property="og:description" content="CSE student, digital marketer, and founder of Astha Imports.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230f1b2d%22/><text x=%2250%22 y=%2268%22 font-size=%2260%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22%23c9a35a%22 text-anchor=%22middle%22>N</text></svg>">
+<title>MD. Naqib Al Mahdi — CSE Student &amp; Founder, Astha Imports</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#0f1b2d;
+    --navy-deep:#0a1220;
+    --panel:#132338;
+    --maroon:#8c2f45;
+    --maroon-bright:#c94f68;
+    --gold:#c9a35a;
+    --cream:#eef0ee;
+    --muted:#9fb0c3;
+    --line:rgba(201,163,90,0.18);
+  }
+
+  *{box-sizing:border-box;}
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--navy-deep);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,h4,.display-font{
+    font-family:'Space Grotesk',sans-serif;
+  }
+
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+  }
+
+  a{ text-decoration:none; }
+
+  /* ---------- background texture ---------- */
+  .grid-bg{
+    position:fixed; inset:0; z-index:-1;
+    background-image:
+      linear-gradient(rgba(201,163,90,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,163,90,0.045) 1px, transparent 1px);
+    background-size:42px 42px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 40%, transparent 100%);
+            mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  /* ---------- navbar ---------- */
+  .navbar-custom{
+    background:rgba(10,18,32,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .navbar-custom .nav-link{
+    color:var(--muted) !important;
+    font-family:'JetBrains Mono',monospace;
+    font-size:.82rem;
+    letter-spacing:.03em;
+    margin:0 .5rem;
+    transition:color .2s;
+  }
+  .navbar-custom .nav-link:hover{ color:var(--gold) !important; }
+  .brand-tag{
+    font-family:'JetBrains Mono',monospace;
+    color:var(--gold);
+    font-weight:500;
+    letter-spacing:.02em;
+  }
+
+  /* ---------- section labels (build-log style, not numbered steps) ---------- */
+  .kicker{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.78rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+  }
+  .kicker::before{
+    content:"";
+    width:26px; height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+
+  section{ padding:6rem 0; position:relative; }
+  .section-title{
+    font-size:clamp(1.8rem, 3vw, 2.6rem);
+    font-weight:600;
+    margin-top:.6rem;
+    margin-bottom:2.5rem;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:5rem;
+    position:relative;
+  }
+  .hero .commit-line{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.85rem;
+    color:var(--gold);
+    border:1px solid var(--line);
+    background:rgba(201,163,90,0.06);
+    padding:.4rem .9rem;
+    border-radius:40px;
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+  }
+  .commit-line .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:#5ec98b;
+    box-shadow:0 0 8px #5ec98b;
+    animation:pulse 1.8s infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1;} 50%{opacity:.35;}
+  }
+
+  .hero-name{
+    font-size:clamp(2.6rem, 6vw, 5rem);
+    font-weight:700;
+    line-height:1.02;
+    letter-spacing:-.02em;
+    margin:1.2rem 0 .6rem;
+  }
+  .hero-name .accent{ color:var(--maroon-bright); }
+
+  .hero-role{
+    font-size:clamp(1.05rem,2vw,1.35rem);
+    color:var(--muted);
+    max-width:640px;
+    line-height:1.65;
+  }
+  .hero-role b{ color:var(--cream); font-weight:600; }
+
+  .photo-frame{
+    position:relative;
+    border-radius:18px;
+    padding:10px;
+    background:linear-gradient(155deg, var(--maroon) 0%, var(--navy) 45%, var(--gold) 130%);
+  }
+  .photo-frame img{
+    width:100%;
+    border-radius:12px;
+    display:block;
+    filter:saturate(1.02) contrast(1.02);
+  }
+  .photo-tag{
+    position:absolute;
+    bottom:-16px; left:20px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:.45rem .9rem;
+    border-radius:8px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:.72rem;
+    color:var(--gold);
+  }
+
+  .btn-maroon{
+    background:var(--maroon);
+    border:1px solid var(--maroon);
+    color:#fff;
+    font-weight:500;
+    padding:.65rem 1.5rem;
+    border-radius:6px;
+    transition:.2s;
+  }
+  .btn-maroon:hover{ background:var(--maroon-bright); color:#fff; transform:translateY(-2px); }
+
+  .btn-outline-gold{
+    border:1px solid var(--line);
+    color:var(--cream);
+    padding:.65rem 1.5rem;
+    border-radius:6px;
+    transition:.2s;
+  }
+  .btn-outline-gold:hover{ border-color:var(--gold); color:var(--gold); }
+
+  /* ---------- panels ---------- */
+  .panel{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:1.8rem;
+    height:100%;
+    transition:.25s;
+  }
+  .panel:hover{ border-color:rgba(201,163,90,0.4); transform:translateY(-4px); }
+
+  .panel .icon-box{
+    width:46px;height:46px;
+    border-radius:10px;
+    background:rgba(140,47,69,0.18);
+    color:var(--maroon-bright);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.25rem;
+    margin-bottom:1.1rem;
+  }
+
+  /* ---------- education timeline ---------- */
+  .timeline{ position:relative; padding-left:2.2rem; }
+  .timeline::before{
+    content:"";
+    position:absolute; left:6px; top:6px; bottom:6px;
+    width:1px;
+    background:var(--line);
+  }
+  .t-item{ position:relative; margin-bottom:2.4rem; }
+  .t-item:last-child{ margin-bottom:0; }
+  .t-item::before{
+    content:"";
+    position:absolute; left:-2.2rem; top:4px;
+    width:13px; height:13px; border-radius:50%;
+    background:var(--navy-deep);
+    border:2px solid var(--gold);
+  }
+  .t-status{
+    display:inline-block;
+    font-family:'JetBrains Mono',monospace;
+    font-size:.7rem;
+    letter-spacing:.05em;
+    color:#5ec98b;
+    border:1px solid rgba(94,201,139,0.35);
+    background:rgba(94,201,139,0.08);
+    padding:.15rem .6rem;
+    border-radius:20px;
+    margin-left:.6rem;
+  }
+
+  /* ---------- skills ---------- */
+  .skill-chip{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.82rem;
+    border:1px solid var(--line);
+    color:var(--muted);
+    padding:.5rem 1rem;
+    border-radius:8px;
+    display:inline-block;
+    margin:.25rem;
+    transition:.2s;
+  }
+  .skill-chip:hover{ color:var(--gold); border-color:var(--gold); }
+
+  .skillbar-label{
+    display:flex; justify-content:space-between;
+    font-size:.88rem; margin-bottom:.35rem;
+  }
+  .skillbar{
+    height:6px; border-radius:6px;
+    background:rgba(255,255,255,0.06);
+    overflow:hidden; margin-bottom:1.3rem;
+  }
+  .skillbar-fill{
+    height:100%;
+    background:linear-gradient(90deg, var(--maroon) 0%, var(--gold) 100%);
+    border-radius:6px;
+  }
+
+  /* ---------- project ---------- */
+  .project-card{
+    background:linear-gradient(160deg, var(--panel), var(--navy));
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .project-head{
+    padding:2rem;
+    border-bottom:1px solid var(--line);
+  }
+  .price-tag{
+    font-family:'JetBrains Mono',monospace;
+    color:var(--gold);
+    font-size:1.4rem;
+    font-weight:600;
+  }
+  .stat-block{ text-align:center; }
+  .stat-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:1.9rem;
+    font-weight:700;
+    color:var(--maroon-bright);
+  }
+  .stat-lab{
+    font-size:.75rem; color:var(--muted);
+    text-transform:uppercase; letter-spacing:.06em;
+  }
+
+  /* ---------- footer / contact ---------- */
+  .contact-panel{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:3.5rem 2.5rem;
+  }
+  .social-circle{
+    width:46px; height:46px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--cream);
+    transition:.2s;
+  }
+  .social-circle:hover{ background:var(--maroon); border-color:var(--maroon); color:#fff; }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:2rem 0;
+    font-family:'JetBrains Mono',monospace;
+    font-size:.8rem;
+    color:var(--muted);
+  }
+
+  #backToTop{
+    position:fixed;
+    bottom:24px; right:24px;
+    width:46px; height:46px;
+    border-radius:50%;
+    background:var(--maroon);
+    color:#fff;
+    border:none;
+    font-size:1.1rem;
+    display:none;
+    align-items:center; justify-content:center;
+    cursor:pointer;
+    z-index:999;
+    transition:.2s;
+  }
+  #backToTop:hover{ background:var(--maroon-bright); transform:translateY(-3px); }
+
+  ::selection{ background:var(--maroon); color:#fff; }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top py-3">
+  <div class="container">
+    <a class="navbar-brand brand-tag" href="#top">&lt;Home /&gt;</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" style="filter:invert(1);">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <a class="nav-link" href="#about">about</a>
+      <a class="nav-link" href="#education">education</a>
+      <a class="nav-link" href="#experience">experience</a>
+      <a class="nav-link" href="#skills">skills</a>
+      <a class="nav-link" href="#project">project</a>
+      <a class="nav-link" href="#freelance">freelance</a>
+      <a class="nav-link" href="#hireme">hire me</a>
+      <a class="nav-link" href="#contact">contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-7">
+        <span class="commit-line"><span class="dot"></span> currently building: Astha Imports · semester 3</span>
+        <h1 class="hero-name">MD. Naqib<br>Al <span class="accent">Mahdi.</span></h1>
+        <p class="hero-role">
+          3rd semester <b>Computer Science &amp; Engineering</b> student at
+          <b>Premier University, Chittagong</b> — currently learning through data structures
+          and discrete mathematics by day, and running a live e-commerce brand
+          by night. Freelance digital marketer, video editor, and graphic designer
+          from Cox's Bazar, based in Chittagong. Aspiring digital nomad.
+        </p>
+        <div class="d-flex gap-3 mt-4 flex-wrap">
+          <a href="#project" class="btn btn-maroon">View my project</a>
+          <a href="#contact" class="btn btn-outline-gold">Get in touch</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="photo-frame">
+          <img src="assets/profile.jpg" alt="Portrait of Naqib">
+          <div class="photo-tag">📍 Chittagong, Bangladesh</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="kicker">whoami</div>
+    <h2 class="section-title">A bit about me</h2>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <p class="hero-role" style="max-width:100%;">
+          I'm an outgoing, ambitious overthinker who likes building things end
+          to end — from writing C code for a graph traversal assignment to
+          debugging server-side Meta Conversions API tracking for my own store.
+          I describe myself as a thoughtful dreamer and a genuine tech
+          enthusiast, always chasing the next skill worth learning.
+        </p>
+        <p class="hero-role" style="max-width:100%;">
+          Outside of code and campaigns, I'm usually listening to music,
+          picking up a new skill, or going for a long drive to clear my head.
+          Long-term, my goal is to become a digital nomad — building things
+          that let me work and travel the world at the same time.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="panel">
+              <div class="icon-box"><i class="bi bi-geo-alt"></i></div>
+              <div class="mono" style="color:var(--muted); font-size:.78rem;">FROM</div>
+              <div style="font-weight:600;">Cox's Bazar</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="panel">
+              <div class="icon-box"><i class="bi bi-building"></i></div>
+              <div class="mono" style="color:var(--muted); font-size:.78rem;">BASED IN</div>
+              <div style="font-weight:600;">Chittagong</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="panel">
+              <div class="icon-box"><i class="bi bi-mortarboard"></i></div>
+              <div class="mono" style="color:var(--muted); font-size:.78rem;">SEMESTER</div>
+              <div style="font-weight:600;">3rd — CSE</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="panel">
+              <div class="icon-box"><i class="bi bi-lightbulb"></i></div>
+              <div class="mono" style="color:var(--muted); font-size:.78rem;">MINDSET</div>
+              <div style="font-weight:600;">Dreamer &amp; Builder</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background:var(--navy);">
+  <div class="container">
+    <div class="kicker">background</div>
+    <h2 class="section-title">Education</h2>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="mono" style="color:var(--muted); font-size:.8rem;">2025 — Present</div>
+        <h4 class="mt-1">B.Sc. in Computer Science &amp; Engineering <span class="t-status">3rd Semester</span></h4>
+        <div style="color:var(--muted);">Premier University, Chittagong</div>
+        <p class="mt-2" style="color:var(--muted); max-width:600px; font-size:.95rem;">
+          Coursework this year spans Data Structures, Discrete Mathematics,
+          Electrical Engineering, and Competitive Programming — alongside
+          assignments like a C-based graph/BFS/DFS project and a discrete
+          math exam covering graph theory and cryptography.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="kicker">work history</div>
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="mono" style="color:var(--muted); font-size:.8rem;">Jan 2026 — Present</div>
+        <h4 class="mt-1">Digital Marketer <span class="t-status">Current</span></h4>
+        <div style="color:var(--muted);">Zain Global (UK) LTD · Chittagong Branch</div>
+        <p class="mt-2" style="color:var(--muted); max-width:640px; font-size:.95rem;">
+          Planning and executing digital marketing campaigns across social
+          media, email, and search platforms for a UK-based company. Creating
+          content for Facebook, Instagram, LinkedIn, and TikTok, managing paid
+          ads, tracking performance metrics, optimising SEO, and overseeing
+          the weekly content calendar and video shoots.
+        </p>
+      </div>
+      <div class="t-item">
+        <div class="mono" style="color:var(--muted); font-size:.8rem;">Nov 2024 — Jul 2025</div>
+        <h4 class="mt-1">Digital Promoter &amp; Sales Marketing</h4>
+        <div style="color:var(--muted);">Carrot Bangladesh</div>
+        <p class="mt-2" style="color:var(--muted); max-width:640px; font-size:.95rem;">
+          Promoted products digitally and supported sales marketing efforts,
+          building on-the-ground experience in audience engagement and brand
+          promotion.
+        </p>
+      </div>
+      <div class="t-item">
+        <div class="mono" style="color:var(--muted); font-size:.8rem;">Feb 2024 — Dec 2024</div>
+        <h4 class="mt-1">Digital Marketer &amp; Product Photographer</h4>
+        <div style="color:var(--muted);">TAJ Group</div>
+        <p class="mt-2" style="color:var(--muted); max-width:640px; font-size:.95rem;">
+          Handled digital marketing efforts alongside product photography,
+          combining visual content creation with campaign promotion.
+        </p>
+      </div>
+      <div class="t-item">
+        <div class="mono" style="color:var(--muted); font-size:.8rem;">Mar 2020 — Nov 2023</div>
+        <h4 class="mt-1">Marketing &amp; Sales Executive</h4>
+        <div style="color:var(--muted);">
+          <a href="https://www.facebook.com/OneDigitalsBD" target="_blank" style="color:var(--muted); text-decoration:underline;">OneDigitals</a>
+        </div>
+        <p class="mt-2" style="color:var(--muted); max-width:640px; font-size:.95rem;">
+          Worked across marketing and sales, building early hands-on
+          experience in client outreach, promotion, and campaign support —
+          the starting point for the digital marketing path I've followed
+          since.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="kicker">toolkit</div>
+    <h2 class="section-title">Skills &amp; Tools</h2>
+
+    <div class="row g-5">
+      <div class="col-lg-6">
+        <h5 class="mb-3" style="color:var(--gold);">Core proficiency</h5>
+
+        <div class="skillbar-label"><span>Digital Marketing (Meta Ads)</span><span>90%</span></div>
+        <div class="skillbar"><div class="skillbar-fill" style="width:90%;"></div></div>
+
+        <div class="skillbar-label"><span>Photo &amp; Video Editing</span><span>85%</span></div>
+        <div class="skillbar"><div class="skillbar-fill" style="width:85%;"></div></div>
+
+        <div class="skillbar-label"><span>Graphic Design</span><span>80%</span></div>
+        <div class="skillbar"><div class="skillbar-fill" style="width:80%;"></div></div>
+
+        <div class="skillbar-label"><span>Web Development (React / JS)</span><span>65%</span></div>
+        <div class="skillbar"><div class="skillbar-fill" style="width:65%;"></div></div>
+
+        <div class="skillbar-label"><span>C Programming &amp; DSA</span><span>60%</span></div>
+        <div class="skillbar"><div class="skillbar-fill" style="width:60%;"></div></div>
+      </div>
+
+      <div class="col-lg-6">
+        <h5 class="mb-3" style="color:var(--gold);">Tools &amp; technologies I use</h5>
+        <div>
+          <span class="skill-chip">React</span>
+          <span class="skill-chip">TypeScript</span>
+          <span class="skill-chip">Tailwind CSS</span>
+          <span class="skill-chip">GitHub Pages</span>
+          <span class="skill-chip">Chrome Extension APIs</span>
+          <span class="skill-chip">Google Apps Script</span>
+          <span class="skill-chip">Google Sheets</span>
+          <span class="skill-chip">Meta Business Suite</span>
+          <span class="skill-chip">Meta Conversions API</span>
+          <span class="skill-chip">Adobe Premiere Pro</span>
+          <span class="skill-chip">CapCut</span>
+          <span class="skill-chip">Adobe Photoshop</span>
+          <span class="skill-chip">C</span>
+          <span class="skill-chip">Git</span>
+        </div>
+        <h5 class="mb-3 mt-4" style="color:var(--gold);">Currently studying</h5>
+        <div>
+          <span class="skill-chip">Data Structures</span>
+          <span class="skill-chip">Discrete Mathematics</span>
+          <span class="skill-chip">Electrical Engineering</span>
+          <span class="skill-chip">Competitive Programming</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT -->
+<section id="project" style="background:var(--navy);">
+  <div class="container">
+    <div class="kicker">flagship build</div>
+    <h2 class="section-title">Featured Project</h2>
+
+    <div class="project-card mb-5">
+      <div class="project-head row align-items-center g-3">
+        <div class="col-md-8">
+          <h3 class="mb-1">Astha Imports</h3>
+          <div style="color:var(--muted);">Bangladeshi e-commerce brand · asthaimports.tech</div>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <span class="price-tag">৳999</span>
+          <div class="mono" style="color:var(--muted); font-size:.75rem;">flagship product</div>
+        </div>
+      </div>
+      <div class="p-4">
+        <p style="color:var(--muted); max-width:760px;">
+          A portable mini fan store built solo, end to end — from brand name
+          and landing page to a full advertising and order-tracking stack.
+          Site is built in React, TypeScript, and Tailwind, hosted on GitHub
+          Pages with a custom domain, with order management running through
+          Google Sheets and Apps Script.
+        </p>
+        <p style="color:var(--muted); max-width:760px;">
+          The technical highlight is a complete Meta Conversions API
+          integration — phone number hashing, SHA-256 encryption, fbc/fbp
+          cookie tracking, event deduplication, and an automatic Purchase
+          event fired on delivery — built to fight fake orders and high
+          cancellation rates through better UX and a cleaner data pipeline.
+        </p>
+        <div class="row g-3 mt-3">
+          <div class="col-6 col-md-3 stat-block">
+            <div class="stat-num">2.5 → 7.2</div>
+            <div class="stat-lab">Event Match Quality</div>
+          </div>
+          <div class="col-6 col-md-3 stat-block">
+            <div class="stat-num">V3</div>
+            <div class="stat-lab">Ad campaign iteration</div>
+          </div>
+          <div class="col-6 col-md-3 stat-block">
+            <div class="stat-num">100%</div>
+            <div class="stat-lab">Solo-built stack</div>
+          </div>
+          <div class="col-6 col-md-3 stat-block">
+            <div class="stat-num">CAPI</div>
+            <div class="stat-lab">Server-side tracking</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <span class="skill-chip">React</span>
+          <span class="skill-chip">TypeScript</span>
+          <span class="skill-chip">Tailwind CSS</span>
+          <span class="skill-chip">Google Apps Script</span>
+          <span class="skill-chip">Meta CAPI</span>
+          <span class="skill-chip">Meta Ads</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="kicker">side builds</div>
+    <h3 class="mb-4" style="font-family:'Space Grotesk',sans-serif; font-weight:600;">Chrome Extensions &amp; Automation Tools</h3>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="panel h-100">
+          <div class="icon-box"><i class="bi bi-people-fill"></i></div>
+          <h5>WA Bulk Importer</h5>
+          <p style="color:var(--muted); font-size:.92rem;">
+            A Chrome extension that bulk-adds contacts to WhatsApp Web
+            groups from a CSV file or manual list, with per-contact
+            progress tracking, a configurable delay, and a live run log —
+            runs entirely in the browser, no data sent anywhere.
+          </p>
+          <div class="mt-3">
+            <span class="skill-chip">Chrome Extension</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">CSV Parsing</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel h-100">
+          <div class="icon-box"><i class="bi bi-chat-dots-fill"></i></div>
+          <h5>WhatsApp Bulk Message</h5>
+          <p style="color:var(--muted); font-size:.92rem;">
+            A Chrome extension that reads a CSV list of numbers and a
+            message template, then automates sending that message to each
+            contact through WhatsApp Web — built for quick outreach without
+            manual copy-pasting.
+          </p>
+          <div class="mt-3">
+            <span class="skill-chip">Chrome Extension</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">DOM Automation</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel h-100">
+          <div class="icon-box"><i class="bi bi-file-earmark-spreadsheet-fill"></i></div>
+          <h5>WhatsApp Group Scraper</h5>
+          <p style="color:var(--muted); font-size:.92rem;">
+            A Chrome extension that auto-scrolls a WhatsApp group's member
+            list and exports the full member list straight to an Excel
+            file, using SheetJS to generate the spreadsheet client-side.
+          </p>
+          <div class="mt-3">
+            <span class="skill-chip">Chrome Extension</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">SheetJS / xlsx</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREELANCE -->
+<section id="freelance">
+  <div class="container">
+    <div class="kicker">on the side</div>
+    <h2 class="section-title">Freelance &amp; Interests</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="icon-box"><i class="bi bi-megaphone"></i></div>
+          <h5>Digital Marketing</h5>
+          <p style="color:var(--muted); font-size:.92rem;">Planning and running Meta (Facebook/Instagram) ad campaigns, from targeting and creative to performance tracking.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="icon-box"><i class="bi bi-camera-reels"></i></div>
+          <h5>Photo &amp; Video Editing</h5>
+          <p style="color:var(--muted); font-size:.92rem;">Shooting and editing promotional and personal video content, primarily using Adobe Premiere Pro.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="icon-box"><i class="bi bi-palette"></i></div>
+          <h5>Graphic Design</h5>
+          <p style="color:var(--muted); font-size:.92rem;">Designing brand visuals, from logos and landing pages to ad creatives for e-commerce.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="icon-box"><i class="bi bi-music-note-beamed"></i></div>
+          <h5>Music</h5>
+          <p style="color:var(--muted); font-size:.92rem;">Always have something playing — it's part of how I focus and unwind.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="icon-box"><i class="bi bi-signpost-split"></i></div>
+          <h5>Long Drives</h5>
+          <p style="color:var(--muted); font-size:.92rem;">A drive is where a lot of my best ideas — including business ones — show up.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="icon-box"><i class="bi bi-airplane"></i></div>
+          <h5>Digital Nomad Goal</h5>
+          <p style="color:var(--muted); font-size:.92rem;">Working toward a life of building things while traveling and collecting meaningful memories along the way.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIRE ME -->
+<section id="hireme" style="background:var(--navy);">
+  <div class="container">
+    <div class="kicker">work with me</div>
+    <h2 class="section-title">Want to Hire Me?</h2>
+    <p style="color:var(--muted); max-width:680px; margin-top:-1.5rem; margin-bottom:2.5rem;">
+      I help brands and small businesses grow through digital marketing,
+      content, and e-commerce systems — the same skills I use running my own
+      store, Astha Imports. Here's what I bring to the table and how we can
+      work together.
+    </p>
+
+    <div class="row g-3 mb-5">
+      <div class="col-12">
+        <h5 style="color:var(--gold);" class="mb-3">Skills available for hire</h5>
+      </div>
+      <div class="col-12">
+        <span class="skill-chip">Meta Ads Strategy &amp; Management</span>
+        <span class="skill-chip">Meta Conversions API Setup</span>
+        <span class="skill-chip">E-commerce Funnel Building</span>
+        <span class="skill-chip">Content Calendar Planning</span>
+        <span class="skill-chip">Product Photography</span>
+        <span class="skill-chip">Video Editing</span>
+        <span class="skill-chip">Graphic Design &amp; Brand Visuals</span>
+        <span class="skill-chip">Landing Page / Store Development</span>
+        <span class="skill-chip">Performance Reporting &amp; Analytics</span>
+      </div>
+    </div>
+
+    <h5 style="color:var(--gold);" class="mb-3">Services</h5>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="icon-box"><i class="bi bi-camera-video"></i></div>
+          <h5>1-on-1 Consultant Call</h5>
+          <p style="color:var(--muted); font-size:.92rem;">A focused call to walk through your marketing, ads, or e-commerce setup and map out clear next steps.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="icon-box"><i class="bi bi-clipboard-data"></i></div>
+          <h5>Business / Ad Account Audit</h5>
+          <p style="color:var(--muted); font-size:.92rem;">A full review of your ad account, tracking setup, and funnel to find what's costing you conversions.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="icon-box"><i class="bi bi-graph-up-arrow"></i></div>
+          <h5>Ad Campaign Management</h5>
+          <p style="color:var(--muted); font-size:.92rem;">Ongoing setup and management of Meta ad campaigns, from targeting and creative to daily optimisation.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="icon-box"><i class="bi bi-bag-check"></i></div>
+          <h5>Store / Landing Page Build</h5>
+          <p style="color:var(--muted); font-size:.92rem;">A conversion-ready store or landing page, built and connected to proper order and ad tracking.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="icon-box"><i class="bi bi-film"></i></div>
+          <h5>Content &amp; Video Editing</h5>
+          <p style="color:var(--muted); font-size:.92rem;">Product photography and short-form video editing for ads, reels, and everyday brand content.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="icon-box"><i class="bi bi-palette2"></i></div>
+          <h5>Graphic Design</h5>
+          <p style="color:var(--muted); font-size:.92rem;">Ad creatives, logos, and brand visuals designed to match your store or campaign.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="#contact" class="btn btn-maroon">Book a Call / Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-panel text-center">
+      <div class="kicker justify-content-center">let's talk</div>
+      <h2 class="section-title">Open to freelance work &amp; collaboration</h2>
+      <p style="color:var(--muted); max-width:560px; margin:0 auto 2rem;">
+        Whether it's a marketing campaign, an edit, a design, or just talking
+        about e-commerce and code — feel free to reach out.
+      </p>
+      <div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
+        <a href="mailto:nqib.uni@gmail.com" class="social-circle" title="Email"><i class="bi bi-envelope"></i></a>
+        <a href="https://wa.me/8801516179036" class="social-circle" target="_blank" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <a href="https://facebook.com/naqibalmahdi" class="social-circle" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://instagram.com/1925ii" class="social-circle" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://github.com/naqib-1925ii" class="social-circle" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://asthaimports.tech" class="social-circle" target="_blank" title="Astha Imports"><i class="bi bi-shop"></i></a>
+      </div>
+      <div class="mono" style="color:var(--muted); font-size:.85rem;">
+        nqib.uni@gmail.com &nbsp;·&nbsp; +880 1516-179036 &nbsp;·&nbsp; @naqibalmahdi &nbsp;·&nbsp; @1925ii
+      </div>
+    </div>
+  </div>
+</section>
+
+<button id="backToTop" title="Back to top">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<footer class="text-center">
+  <div class="container">
+    © <span id="year"></span> MD. Naqib Al Mahdi · Built with HTML, CSS &amp; Bootstrap
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // 1. Show the current year automatically in the footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // 2. Show/hide the Back to Top button based on scroll position
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTop.style.display = 'flex';
+    } else {
+      backToTop.style.display = 'none';
+    }
+  });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // 3. Auto-close the mobile menu after clicking a nav link
+  document.querySelectorAll('#navMenu .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const menu = document.getElementById('navMenu');
+      const bsCollapse = bootstrap.Collapse.getInstance(menu);
+      if (bsCollapse) bsCollapse.hide();
+    });
+  });
+</script>
+</body>
+</html>
